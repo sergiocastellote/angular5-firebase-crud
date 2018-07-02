@@ -1,0 +1,58 @@
+<div id="main">
+  <section class="post">
+    <header class="major">
+      <h3 class="date">Listado de
+        <br>ciclistas</h3>
+    </header>
+    <div class="icons-filter">
+      <fa (click)="searchCyclist(name)" [name]="'search'" [size]=2></fa>
+      <fa (click)="cleanSearch()" [name]="'times'" [size]=2></fa>
+    </div>
+    <br>
+    <div class="field right">
+      <input [(ngModel)]="name" type="text" placeholder="Nombre" name="name" id="name" />
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+      <table>
+        <tr>
+          <th><div class="center-text">Nombre</div></th>
+          <th><div class="center-text">Apellido</div></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let cyclist of listCyclist | async">
+          <td *ngIf="!showListFiltered">{{cyclist.name}}</td>
+          <td *ngIf="!showListFiltered">{{cyclist.surname}}</td>
+          <td class="cell-size" *ngIf="!showListFiltered">
+            <fa (click)="goToDetail(cyclist)" [name]="'info'" [size]=2></fa>
+          </td>
+          <td *ngIf="!showListFiltered">
+            <fa (click)="updateCyclist(cyclist)" [name]="'pencil'" [size]=2></fa>
+          </td>
+          <td *ngIf="!showListFiltered">
+            <fa (click)="deleteCyclist(cyclist)" [name]="'trash'" [size]=2></fa>
+          </td>
+        </tr>
+
+        <tr *ngFor="let cyclist of listCyclist | async">
+          <td *ngIf="cyclist.name === name && showListFiltered">{{cyclist.name}}</td>
+          <td *ngIf="cyclist.name === name && showListFiltered">{{cyclist.surname}}</td>
+          <td class="cell-size" *ngIf="cyclist.name === name && showListFiltered">
+            <fa (click)="goToDetail(cyclist)" [name]="'info'" [size]=2></fa>
+          </td>
+          <td *ngIf="cyclist.name === name && showListFiltered">
+            <fa (click)="updateCyclist(cyclist)" [name]="'pencil'" [size]=2></fa>
+          </td>
+          <td *ngIf="cyclist.name === name && showListFiltered">
+            <fa (click)="deleteCyclist(cyclist)" [name]="'trash'" [size]=2></fa>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+</div>

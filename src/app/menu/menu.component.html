@@ -1,0 +1,10 @@
+<nav id="nav">
+  <ul class="links">
+    <li [ngClass]="{'active': router.url === '/list'}">
+      <a routerLink="/list">Listado</a>
+    </li>
+    <li [ngClass]="{'active': router.url === '/form'}">
+      <a routerLink="/form">Nuevo ciclista</a>
+    </li>
+  </ul>
+</nav>
