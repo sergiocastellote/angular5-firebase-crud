@@ -1,9 +1,9 @@
 # Install and configure
 
-Clone project
-Execute 'npm install'
-Execute 'npm start'
+- Clone project
+- Execute 'npm install'
+- Execute 'npm start'
 
 # To deploy
 
-Execute 'npm run deploy'
+- Execute 'npm run deploy'
