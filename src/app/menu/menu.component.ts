@@ -7,4 +7,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
 
+  constructor(public router: Router){}
+
 }
+

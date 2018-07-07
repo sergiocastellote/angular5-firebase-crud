@@ -84,6 +84,10 @@ input, select, textarea {
 	margin-left: 15px;
 }
 
+.cell-size {
+	width: 16%;
+}
+
 /* Basic */
 
 	@-ms-viewport {
