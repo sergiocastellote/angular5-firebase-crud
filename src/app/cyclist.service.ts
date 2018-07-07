@@ -16,10 +16,10 @@ export class CyclistService {
   private cyclistDoc: AngularFirestoreDocument<any>;
 
   constructor(private db: AngularFirestore, private route: ActivatedRoute) {
+    this.cyclistCollection = this.db.collection<Cyclist>('cyclist');
   }
 
   getCyclist(): Observable<any[]> {
-    this.cyclistCollection = this.db.collection<Cyclist>('cyclist');
     return this.cyclistCollection.snapshotChanges();
   }
 
