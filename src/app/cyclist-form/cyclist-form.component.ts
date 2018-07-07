@@ -11,12 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './cyclist-form.component.html'
 })
 export class CyclistFormComponent implements OnInit {
-
-  // cyclist = {
-  //   name: '',
-  //   surname: '',
-  //   info: ''
-  // };
+  
   cyclist = new Cyclist();
   create: boolean;
   detail: string;
@@ -30,7 +25,6 @@ export class CyclistFormComponent implements OnInit {
     this.detail = this.route.snapshot.paramMap.get('detail');
     if (!this.create) {
       this.getOneCyclist();
-      //hacer llamada al get one para rellenar el formulario con los datos
     }
   }
 
@@ -59,9 +53,6 @@ export class CyclistFormComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.cyclistService.getOneCyclist(id).subscribe(cyclist => {
       this.cyclist = cyclist;
-      // this.cyclist.surname = cyclist.surname;
-      // this.cyclist.info = cyclist.info;
-      // this.cyclist.id = cyclist.id;
     });
   }
 

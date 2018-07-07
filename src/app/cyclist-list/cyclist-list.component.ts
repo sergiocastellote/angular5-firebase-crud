@@ -53,9 +53,7 @@ export class CyclistListComponent implements OnInit {
     this.showListFiltered = false;
   }
 
-
-
-
+  
 }
 
 

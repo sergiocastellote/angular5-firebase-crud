@@ -5,10 +5,6 @@ import { Router } from '@angular/router';
   selector: 'app-menu',
   templateUrl: './menu.component.html'
 })
-export class MenuComponent implements OnInit {
-
-  ngOnInit(): void {
-  }
-  constructor(public router: Router) { }
+export class MenuComponent {
 
 }

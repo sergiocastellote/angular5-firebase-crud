@@ -1,46 +1,38 @@
-<!-- Main -->
 <div id="main">
-  <!-- Post -->
   <section class="post">
     <header class="major">
-      <h3 *ngIf="create" class="date">Añade
-        <br>ciclista</h3>
-      <h3 *ngIf="!create && !detail" class="date">Editar
-        <br>ciclista</h3>
-        <h3 *ngIf="!create && detail" class="date">Detalle
-            <br>ciclista</h3>
+      <h3 *ngIf="create" class="date">Add
+        <br>cyclist</h3>
+      <h3 *ngIf="!create && !detail" class="date">Edit
+        <br>cyclist</h3>
+        <h3 *ngIf="!create && detail" class="date">Cyclist
+            <br>detail</h3>
     </header>
     <form #contactForm="ngForm">
       <div class="field">
-        <label for="name">Nombre</label>
+        <label for="name">Name</label>
         <input [(ngModel)]="cyclist.name" [disabled]="detail" type="text" name="name" id="name" required/>
-        <!-- <input matInput placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="cyclisst.name" name="Name" required> -->
       </div>
-      <div class="field">
-        <label for="name">Apellidos</label>
+      <div class="field" class="margin-top-form">
+        <label for="name">Surname</label>
         <input [(ngModel)]="cyclist.surname" [disabled]="detail" type="text" name="surname" id="surname" required/>
       </div>
-      <div class="field">
-          <label for="name">Información</label>
+      <div class="field" class="margin-top-form">
+          <label for="name">Info</label>
           <input [(ngModel)]="cyclist.info" [disabled]="detail" type="text" name="info" id="info" required/>
         </div>
-      <!-- <div class="field">
-        <label for="file">Escoge imagen</label>
-        <input type="file" id="file" [(ngModel)]="cyclist.img" name="img">
-      </div> -->
-      <ul class="actions">
+      <div class="field">
         <br>
         <button [disabled]="!contactForm.form.valid" *ngIf="create" (click)="createCyclist(cyclist)">
-          Crear ciclista
+          Add
         </button>
         <button [disabled]="!contactForm.form.valid" *ngIf="!create && !detail" (click)="updateCyclist(cyclist)">
-          Actualizar ciclista
+          Update
         </button>
         <button  *ngIf="!create && detail" (click)="detail = false">
-            Editar
+            Edit
           </button>
-      </ul>
+      </div>
     </form>
   </section>
-
 </div>

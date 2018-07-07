@@ -1,26 +1,29 @@
 <div id="main">
   <section class="post">
     <header class="major">
-      <h3 class="date">Listado de
-        <br>ciclistas</h3>
+      <h3 class="date">List of
+        <br>cyclists</h3>
     </header>
-    <div class="icons-filter">
-      <fa (click)="searchCyclist(name)" [name]="'search'" [size]=2></fa>
-      <fa (click)="cleanSearch()" [name]="'times'" [size]=2></fa>
+    <div>
+      <div class="icons-filter">
+        <fa (click)="searchCyclist(name)" [name]="'search'" [size]=2></fa>
+        <fa class="margin-left-icon" (click)="cleanSearch()" [name]="'times'" [size]=2></fa>
+      </div>
+      <div class="field right">
+        <input [(ngModel)]="name" type="text" placeholder="Name" name="name" id="name" />
+      </div>
     </div>
-    <br>
-    <div class="field right">
-      <input [(ngModel)]="name" type="text" placeholder="Nombre" name="name" id="name" />
-    </div>
-    <br>
-    <br>
     <br>
     <br>
     <div>
       <table>
         <tr>
-          <th><div class="center-text">Nombre</div></th>
-          <th><div class="center-text">Apellido</div></th>
+          <th>
+            <div class="center-text">Name</div>
+          </th>
+          <th>
+            <div class="center-text">Surname</div>
+          </th>
           <th></th>
           <th></th>
           <th></th>
@@ -38,7 +41,6 @@
             <fa (click)="deleteCyclist(cyclist)" [name]="'trash'" [size]=2></fa>
           </td>
         </tr>
-
         <tr *ngFor="let cyclist of listCyclist | async">
           <td *ngIf="cyclist.name === name && showListFiltered">{{cyclist.name}}</td>
           <td *ngIf="cyclist.name === name && showListFiltered">{{cyclist.surname}}</td>

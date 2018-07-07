@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { ReturnStatement } from '@angular/compiler';
 
 
+
 @Injectable()
 export class CyclistService {
 
