@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs';
-import { element } from 'protractor';
 import { CyclistService } from './../cyclist.service';
 import { Cyclist } from './../cyclist';
 import { Component, OnInit } from '@angular/core';
@@ -25,6 +24,7 @@ export class CyclistListComponent implements OnInit {
 
   getCyclist(): void {
     this.listCyclist = this.cyclistService.getCyclist().pipe(
+      //to add id of documents to object
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Cyclist;
         const id = a.payload.doc.id;
@@ -37,13 +37,13 @@ export class CyclistListComponent implements OnInit {
   }
 
   deleteCyclist(cyclist: Cyclist) {
-    this.cyclistService.deleteCyclist(cyclist)
+    this.cyclistService.deleteCyclist(cyclist);
   }
 
   goToDetail(cyclist: Cyclist): void {
-    this.router.navigate(['/detail/' + cyclist.id, {detail: true}])
-    // this.router.navigateByUrl(['/detail/' + cyclist.id, {test: 'test'}]);
+    this.router.navigate(['/detail/' + cyclist.id, {detail: true}]);
   }
+
   updateCyclist(cyclist: Cyclist): void {
     this.router.navigateByUrl('/detail/' + cyclist.id);
   }
